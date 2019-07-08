@@ -1,10 +1,11 @@
-<div class="container">
-<h1>Burgers</h1>
-
-<div class="class">
+<div class="container ml-5">
     <div class="row">
-        <div class="col-sm6">
-            <ul> 
+        <h1>Burgers</h1>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <ul>
                 {{#each burgers}}
                 <li>
                     <p> ID : {{this.id}} </p>
@@ -15,54 +16,62 @@
             </ul>
         </div>
 
-        <div class="col-sm6">
-        {{#each burgers}}
-          {{#if this.devoured}}
+        <div class="col">
+            {{#each burgers}}
+            {{#if this.devoured}}
             <div class='eaten'>
-              <div>
-                {{this.burger_name}}
-              </div>
+                <div>
+                    {{this.burger_name}}
+                </div>
             </div>
-          {{/if}}
-        {{/each}}
-      </div>
+            {{/if}}
+            {{/each}}
+        </div>
     </div>
 
-</div>
-{{!-- displays the sql data onto root directory --}}
+
+    {{!-- displays the sql data onto root directory --}}
 
 
 
 
-{{!-- button that will submit user input into database --}}
-<h2> Order some Food! </h2>
+    {{!-- button that will submit user input into database --}}
+    <h2> Order another burger! </h2>
 
-<form class="create-form" action="/burgers" method="POST">
-    <div class="form-group">
+    <form action="/burgers" method="POST" id="create-form" class="button-size">
         <label for="bur">Burger Type</label>
         <input type="text" id="bur" name="burger_name">
-    </div>
-    <button type="submit">Add Burger</button>
-</form>
-</div>
+        <button type="submit">Add burger!</button>
+    </form>
+{{!-- 
+    <form class="create-form" action="/burgers" method="POST">
+        <div class="form-group">
+            <label for="bur">Burger Type</label>
+            <input type="text" id="bur" name="burger_name">
+        </div>
+        <button type="submit">Add Burger</button>
+    </form>
+</div> --}}
+
+
 {{!-- 
 <script type="text/javascript">
-$("#bur").on("submit", function(event) {
-    event.preventDefault();
+    $("#bur").on("submit", function (event) {
+        event.preventDefault();
 
-    var newBurger = {
-        burger_name: $("#bur [name=burger]").val().trim()
-    };
+        var newBurger = {
+            burger_name: $("#bur [name=burger]").val().trim()
+        };
 
-    $.ajax("/burgers", {
-        type: "POST", 
-        data: newBurger
-    }).then(
-        function(){
-            console.log("new burger?");
-            location.reload();
-        }
-    );
-});
+        $.ajax("/burgers", {
+            type: "POST",
+            data: newBurger
+        }).then(
+            function () {
+                console.log("new burger?");
+                location.reload();
+            }
+        );
+    });
 
 </script> --}}
