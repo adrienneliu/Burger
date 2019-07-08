@@ -1,15 +1,36 @@
+<div class="container">
 <h1>Burgers</h1>
 
+<div class="class">
+    <div class="row">
+        <div class="col-sm6">
+            <ul> 
+                {{#each burgers}}
+                <li>
+                    <p> ID : {{this.id}} </p>
+                    <p> Burger: {{this.burger_name}} </p>
+                    <p> Eaten: {{this.devoured}}</p>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col-sm6">
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <div class='eaten'>
+              <div>
+                {{this.burger_name}}
+              </div>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+
+</div>
 {{!-- displays the sql data onto root directory --}}
-<ul> 
-    {{#each burgers}}
-    <li>
-        <p> ID : {{this.id}} </p>
-        <p> Burger: {{this.burger_name}} </p>
-        <p> Eaten: {{this.devoured}}</p>
-    </li>
-    {{/each}}
-</ul>
+
 
 
 
@@ -23,7 +44,7 @@
     </div>
     <button type="submit">Add Burger</button>
 </form>
-
+</div>
 {{!-- 
 <script type="text/javascript">
 $("#bur").on("submit", function(event) {
