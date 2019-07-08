@@ -17,6 +17,15 @@ router.get("/", function(req, res) {
     });
 });
 
+router.post("/burgers", function(req, res){
+    burger.insertOne([
+        "burger_name"
+    ], [ req.body.burger_name
+    ], function(result) {
+        res.redirect('/');
+    }
+    )
+})
 
 
 module.exports = router;

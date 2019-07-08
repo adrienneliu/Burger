@@ -10,3 +10,37 @@
     </li>
     {{/each}}
 </ul>
+
+
+
+{{!-- button that will submit user input into database --}}
+<h2> Order some Food! </h2>
+
+<form class="create-form">
+    <div class="form-group">
+        <label for="bur">Burger Type</label>
+        <input type="text" id="bur" name="burger">
+    </div>
+    <button type="submit">Add Burger</button>
+</form>
+
+<script type="text/javascript">
+$("#bur").on("submit", function(event) {
+    event.preventDefault();
+
+    var newBurger = {
+        burger_name: $("#bur [name=burger]").val().trim()
+    };
+
+    $.ajax("/", {
+        type: "POST", 
+        data: newBurger
+    }).then(
+        function(){
+            console.log("new burger?");
+            location.reload();
+        }
+    );
+});
+
+</script>
