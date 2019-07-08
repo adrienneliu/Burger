@@ -1,0 +1,12 @@
+<h1>Burgers</h1>
+
+{{!-- displays the sql data onto root directory --}}
+<ul> 
+    {{#each burgers}}
+    <li>
+        <p> ID : {{this.id}} </p>
+        <p> Burger: {{this.burger_name}} </p>
+        <p> Eaten: {{this.devoured}}</p>
+    </li>
+    {{/each}}
+</ul>
