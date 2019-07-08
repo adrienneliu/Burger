@@ -16,14 +16,15 @@
 {{!-- button that will submit user input into database --}}
 <h2> Order some Food! </h2>
 
-<form class="create-form">
+<form class="create-form" action="/burgers" method="POST">
     <div class="form-group">
         <label for="bur">Burger Type</label>
-        <input type="text" id="bur" name="burger">
+        <input type="text" id="bur" name="burger_name">
     </div>
     <button type="submit">Add Burger</button>
 </form>
 
+{{!-- 
 <script type="text/javascript">
 $("#bur").on("submit", function(event) {
     event.preventDefault();
@@ -32,7 +33,7 @@ $("#bur").on("submit", function(event) {
         burger_name: $("#bur [name=burger]").val().trim()
     };
 
-    $.ajax("/", {
+    $.ajax("/burgers", {
         type: "POST", 
         data: newBurger
     }).then(
@@ -43,4 +44,4 @@ $("#bur").on("submit", function(event) {
     );
 });
 
-</script>
+</script> --}}

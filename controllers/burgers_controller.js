@@ -23,9 +23,22 @@ router.post("/burgers", function(req, res){
     ], [ req.body.burger_name
     ], function(result) {
         res.redirect('/');
-    }
-    )
+    });
+});
+
+router.put("/burgers/:id", function(req, res) {
+    var condition = "id = " + req.params.id; 
+
+    console.log("condition is ", condition); 
+
+    burger.updateOne({
+        devoured: true
+    }, condition, function(result) {
+        if (result.changedRows === 0) {
+            return res.status(404).end();
+        } else{
+            res.status(200).end();
+        }
+    })
 })
-
-
 module.exports = router;
