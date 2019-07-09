@@ -5,3 +5,24 @@ body {
     background-size: 40%;
     background-position: bottom right;
 }
+
+h1 {
+    font-family: 'Parisienne', cursive;
+    font-size: 130px;
+}
+
+#eatme {
+    border-radius: 8px;
+    background-color: RosyBrown;
+    /* background: #A43553; */
+/* background: -moz-linear-gradient(top, #A43553 0%, #CBB96A 60%, #753B49 100%);
+background: -webkit-linear-gradient(top, #A43553 0%, #CBB96A 60%, #753B49 100%); */
+    background: linear-gradient(to bottom, #A43553 0%, #CBB96A 60%, #753B49 100%);
+    
+}
+#eatme:hover {
+    background-position: top center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 8px 10px 12px;
+    /* opacity: 0.6; */
+}
