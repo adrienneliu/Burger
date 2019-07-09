@@ -11,8 +11,14 @@ h1 {
     font-size: 130px;
 }
 
+h2 {
+    font-family: 'Parisienne', cursive;
+    /* font-family: 'Homemade Apple', cursive; */
+    font-size: 55px;
+}
 #eatme {
     border-radius: 8px;
+    font-family: 'Lobster Two', cursive;
     background-color: RosyBrown;
     /* background: #A43553; */
 /* background: -moz-linear-gradient(top, #A43553 0%, #CBB96A 60%, #753B49 100%);
@@ -21,6 +27,19 @@ background: -webkit-linear-gradient(top, #A43553 0%, #CBB96A 60%, #753B49 100%);
     
 }
 #eatme:hover {
+    background-position: top center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 8px 10px 12px;
+    /* opacity: 0.6; */
+}
+
+
+#order{
+    border-radius: 8px;
+    background: linear-gradient(to bottom, #EA8630 0%, #1DAD37 61%, #E28245 100%););
+}
+
+#order:hover {
     background-position: top center;
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     margin: 8px 10px 12px;

@@ -8,12 +8,13 @@
         <form action="/burgers" method="POST" id="create-form" class="button-size">
             <label for="bur">Order your own burger!</label>
             <input type="text" id="burgername" name="burger_name">
-            <button type="submit">Almost mine!</button>
+            <button type="submit" id="order">Order up! <i class="fa fa-book"></i></button>
         </form>
     </div>
 
     <div class="row mt-5">
         <div class="col">
+            <h2>To be eaten... </h2>
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
@@ -31,7 +32,8 @@
 
         <div class="col">
             <div class='eaten'>
-                {{this.burger_name}}
+                <h2> Eaten! </h2>
+                {{!-- {{this.burger_name}} --}}
 
                 <ul>
                     {{#each burgers}}
