@@ -2,7 +2,7 @@
 ![screengrab of app](/public/assets/img/burger.gif)
 
 ## About
-This is an app that allows the user to order their choice of burger. Once the user pressed on the "Order up!" button, their desired hamburger will be displayed in the "To be eaten" column. A button will be dynamically generated and once the user clicks on this button, their order will move from the "To be eaten" column to the "Eaten" column. This is all done without refreshing the page. 
+This is a restaurant app that allows the user to order their dream burger. Once the user presses the "Order up!" button, their desired hamburger will be displayed in the "To be eaten" column. A button will be dynamically generated, stating "Eat me now!" and once the user clicks on this, their order will move from the "To be eaten" column to the "Eaten" column. This is all done without refreshing the page. 
 
 ## Techonology Used
 - Node 
@@ -12,6 +12,9 @@ This is an app that allows the user to order their choice of burger. Once the us
 - jQuery
 - Bootstrap
 - HTML 
+- MySQL
+- ORM
+- MVC
 
 
 
