@@ -3,75 +3,84 @@
         <h1>Burgers</h1>
     </div>
 
-    <div class="row">
+
+    <div class="row mt-3">
+        <form action="/burgers" method="POST" id="create-form" class="button-size">
+            <label for="bur">Order your own burger!</label>
+            <input type="text" id="burgername" name="burger_name">
+            <button type="submit">Almost mine!</button>
+        </form>
+    </div>
+
+    <div class="row mt-5">
         <div class="col">
             <ul>
                 {{#each burgers}}
+                {{#unless devoured}}
                 <li>
-                    <p> ID : {{this.id}} </p>
-                    <p> Burger: {{this.burger_name}} </p>
-                    <p> Eaten: {{this.devoured}}</p>
+                    <p>{{this.id}}. {{this.burger_name}}
+                        {{!-- button for devouring --}}
+                        <button data-id="{{this.id}}" data-state="{{devoured}}" class="devoured" id="eatme">Eat me
+                            now!</button>
+                    </p>
                 </li>
+                {{/unless}}
                 {{/each}}
             </ul>
         </div>
 
         <div class="col">
-            {{#each burgers}}
-            {{#if this.devoured}}
             <div class='eaten'>
-                <div>
-                    {{this.burger_name}}
-                </div>
+                {{this.burger_name}}
+
+                <ul>
+                    {{#each burgers}}
+                    {{#if devoured}}
+                    <p> {{this.id}} - {{this.burger_name}}</p>
+
+                    {{/if}}
+                    {{/each}}
+                </ul>
             </div>
-            {{/if}}
-            {{/each}}
         </div>
     </div>
-
-
-    {{!-- displays the sql data onto root directory --}}
-
+</div>
 
 
 
-    {{!-- button that will submit user input into database --}}
-    <h2> Order another burger! </h2>
-
-    <form action="/burgers" method="POST" id="create-form" class="button-size">
-        <label for="bur">Burger Type</label>
-        <input type="text" id="bur" name="burger_name">
-        <button type="submit">Add burger!</button>
-    </form>
-{{!-- 
-    <form class="create-form" action="/burgers" method="POST">
-        <div class="form-group">
-            <label for="bur">Burger Type</label>
-            <input type="text" id="bur" name="burger_name">
-        </div>
-        <button type="submit">Add Burger</button>
-    </form>
-</div> --}}
-
-
-{{!-- 
 <script type="text/javascript">
-    $("#bur").on("submit", function (event) {
+    $("#create-form").on("submit", function (event) {
         event.preventDefault();
 
         var newBurger = {
-            burger_name: $("#bur [name=burger]").val().trim()
+            burger_name: $("#burgername").val().trim(),
+            devoured: 0
         };
 
-        $.ajax("/burgers", {
+        $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
-        }).then(
-            function () {
+        }).then(function () {
                 console.log("new burger?");
                 location.reload();
-            }
-        );
+            });
     });
 
-</script> --}}
+    $(".devoured").on("click", function(event) {
+        event.preventDefault();
+
+        var id = $(this).data("id");
+        var eaten = {
+            devoured: 1
+        };
+
+        $.ajax("/api/burgers/" + id, {
+            type: "PUT",
+            data: eaten
+        }).then(function () {
+                console.log("eaten?");
+                location.reload();
+            });
+    });
+
+</script>
